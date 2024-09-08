@@ -2,6 +2,7 @@
 include_once '../modelo/Auto.php';
 include_once '../modelo/Persona.php';
 
+
 // Obtener todos los autos
 $autos = Auto::listar("1=1");  // Ajusta la consulta según la implementación
 

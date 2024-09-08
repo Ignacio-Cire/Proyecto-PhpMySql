@@ -1,8 +1,9 @@
 <?php
 
-include_once './BaseDatos.php';
+include_once '../modelo/BaseDatos.php';
 
 class Persona {
+    // Atributos privados de la clase Persona
     private $nroDni;
     private $apellido;
     private $nombre;
@@ -20,26 +21,62 @@ class Persona {
         $this->domicilio = $domicilio;
     }
 
-    // Getters y Setters
-    public function getNroDni() { return $this->nroDni; }
-    public function getApellido() { return $this->apellido; }
-    public function getNombre() { return $this->nombre; }
-    public function getFechaNac() { return $this->fechaNac; }
-    public function getTelefono() { return $this->telefono; }
-    public function getDomicilio() { return $this->domicilio; }
+    // Getters
+    public function getNroDni() {
+        return $this->nroDni;
+    }
 
-    public function setNroDni($nroDni) { $this->nroDni = $nroDni; }
-    public function setApellido($apellido) { $this->apellido = $apellido; }
-    public function setNombre($nombre) { $this->nombre = $nombre; }
-    public function setFechaNac($fechaNac) { $this->fechaNac = $fechaNac; }
-    public function setTelefono($telefono) { $this->telefono = $telefono; }
-    public function setDomicilio($domicilio) { $this->domicilio = $domicilio; }
+    public function getApellido() {
+        return $this->apellido;
+    }
+
+    public function getNombre() {
+        return $this->nombre;
+    }
+
+    public function getFechaNac() {
+        return $this->fechaNac;
+    }
+
+    public function getTelefono() {
+        return $this->telefono;
+    }
+
+    public function getDomicilio() {
+        return $this->domicilio;
+    }
+
+    // Setters
+    public function setNroDni($nroDni) {
+        $this->nroDni = $nroDni;
+    }
+
+    public function setApellido($apellido) {
+        $this->apellido = $apellido;
+    }
+
+    public function setNombre($nombre) {
+        $this->nombre = $nombre;
+    }
+
+    public function setFechaNac($fechaNac) {
+        $this->fechaNac = $fechaNac;
+    }
+
+    public function setTelefono($telefono) {
+        $this->telefono = $telefono;
+    }
+
+    public function setDomicilio($domicilio) {
+        $this->domicilio = $domicilio;
+    }
 
     // Método para insertar datos en la base de datos
     public function insertar() {
         $baseDatos = new BaseDatos();
-        $sql = "INSERT INTO persona (NroDni, Apellido, Nombre, fechaNac, Telefono, Domicilio) VALUES (:nroDni, :apellido, :nombre, :fechaNac, :telefono, :domicilio)";
-        $consulta = $baseDatos->getConexion()->prepare($sql);
+        $sql = "INSERT INTO persona (NroDni, Apellido, Nombre, fechaNac, Telefono, Domicilio) 
+                VALUES (:nroDni, :apellido, :nombre, :fechaNac, :telefono, :domicilio)";
+        $consulta = $baseDatos->prepare($sql);
         $consulta->bindParam(':nroDni', $this->nroDni);
         $consulta->bindParam(':apellido', $this->apellido);
         $consulta->bindParam(':nombre', $this->nombre);
@@ -52,8 +89,10 @@ class Persona {
     // Método para actualizar datos en la base de datos
     public function modificar() {
         $baseDatos = new BaseDatos();
-        $sql = "UPDATE persona SET Apellido = :apellido, Nombre = :nombre, fechaNac = :fechaNac, Telefono = :telefono, Domicilio = :domicilio WHERE NroDni = :nroDni";
-        $consulta = $baseDatos->getConexion()->prepare($sql);
+        $sql = "UPDATE persona 
+                SET Apellido = :apellido, Nombre = :nombre, fechaNac = :fechaNac, Telefono = :telefono, Domicilio = :domicilio 
+                WHERE NroDni = :nroDni";
+        $consulta = $baseDatos->prepare($sql);
         $consulta->bindParam(':nroDni', $this->nroDni);
         $consulta->bindParam(':apellido', $this->apellido);
         $consulta->bindParam(':nombre', $this->nombre);
@@ -67,33 +106,82 @@ class Persona {
     public function eliminar() {
         $baseDatos = new BaseDatos();
         $sql = "DELETE FROM persona WHERE NroDni = :nroDni";
-        $consulta = $baseDatos->getConexion()->prepare($sql);
+        $consulta = $baseDatos->prepare($sql);
         $consulta->bindParam(':nroDni', $this->nroDni);
         return $consulta->execute();
     }
 
-    // Método para buscar registros en la base de datos
-    public static function listar($where = "") {
+
+
+
+    // Método estático para listar registros en la base de datos
+     static function listar($where = "") {
         $baseDatos = new BaseDatos();
         $sql = "SELECT * FROM persona";
-        if ($where != "") {
+        if (!empty($where)) {
             $sql .= " WHERE $where";
         }
-        $consulta = $baseDatos->getConexion()->prepare($sql);
+        $consulta = $baseDatos->prepare($sql);
         $consulta->execute();
         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
         $arregloPersonas = [];
         foreach ($resultado as $row) {
-            $persona = new Persona();
-            $persona->setNroDni($row['NroDni']);
-            $persona->setApellido($row['Apellido']);
-            $persona->setNombre($row['Nombre']);
-            $persona->setFechaNac($row['fechaNac']);
-            $persona->setTelefono($row['Telefono']);
-            $persona->setDomicilio($row['Domicilio']);
+            $persona = new Persona(
+                $row['NroDni'],
+                $row['Apellido'],
+                $row['Nombre'],
+                $row['fechaNac'],
+                $row['Telefono'],
+                $row['Domicilio']
+            );
             $arregloPersonas[] = $persona;
         }
         return $arregloPersonas;
     }
+
+
+    
+   static function buscar($criterios) {
+        $baseDatos = new BaseDatos();
+        
+        // Crear la consulta SQL
+        $sql = "SELECT * FROM persona WHERE ";
+        $condiciones = [];
+        foreach ($criterios as $campo => $valor) {
+            $condiciones[] = "$campo = :$campo";
+        }
+        $sql .= implode(' AND ', $condiciones);
+        
+        // Preparar la consulta
+        $consulta = $baseDatos->prepare($sql);
+        
+        // Bindear los parámetros
+        foreach ($criterios as $campo => $valor) {
+            $consulta->bindParam(":$campo", $criterios[$campo]);
+        }
+        
+        // Ejecutar y obtener el resultado
+        $consulta->execute();
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        
+        // Convertir el resultado en un arreglo de objetos Persona
+        $personas = [];
+        foreach ($resultado as $row) {
+            $persona = new Persona(
+                $row['NroDni'],
+                $row['Apellido'],
+                $row['Nombre'],
+                $row['fechaNac'],
+                $row['Telefono'],
+                $row['Domicilio']
+            );
+            $personas[] = $persona;
+        }
+        
+        return $personas;
+    }
+    
 }
+
 ?>

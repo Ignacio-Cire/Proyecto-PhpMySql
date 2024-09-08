@@ -36,12 +36,14 @@ class BaseDatos extends PDO {
         $this->sql = ""; // Inicializa la consulta SQL vacía.
         $this->indice = 0; // Inicializa el índice a 0.
 
+       
+
         // Construye el DSN (Data Source Name) para PDO.
         $dns = $this->engine . ':dbname=' . $this->database . ";host=" . $this->host;
 
         try {
             // Llama al constructor de la clase padre (PDO) para establecer la conexión.
-            parent::__construct($dns, $this->user, $this->pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+            parent::__construct($dns, $this->user='root', $this->pass='', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
             $this->conec = true; // Conexión exitosa, establece conec a true.
         } catch (PDOException $e) {
             // Si ocurre un error en la conexión, captura la excepción y guarda el mensaje de error.

@@ -1,5 +1,6 @@
 <?php
-include_once 'Auto.php'; // Asegúrate de incluir la clase del modelo
+include_once '../modelo/Auto.php'; 
+ 
 
 class ControlAuto {
     

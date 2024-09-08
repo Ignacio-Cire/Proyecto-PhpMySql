@@ -1,5 +1,8 @@
 <?php
-include_once '../controller/ControlAuto.php';
+include_once '../control/ControlAuto.php';
+include_once '../modelo/Auto.php';
+include_once '../modelo/Persona.php';
+include_once '../modelo/BaseDatos.php';
 
 // Crear una instancia del controlador
 $controlAuto = new ControlAuto();
@@ -13,8 +16,8 @@ $autosConDueño = $controlAuto->obtenerAutos();
 <head>
     <meta charset="UTF-8">
     <title>Ver Autos</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Agrega tu archivo CSS si lo tienes -->
-</head>
+    <link rel="stylesheet" href="styles.css"> <!-- agregamos css para futuro -->
+</head>     
 <body>
     <h1>Listado de Autos</h1>
     

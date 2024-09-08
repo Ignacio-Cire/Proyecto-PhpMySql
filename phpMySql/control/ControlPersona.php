@@ -1,5 +1,5 @@
 <?php
-include_once 'Persona.php'; // poner bien la carpeta
+include_once '../modelo/Persona.php'; // poner bien la carpeta
 
 class ControlPersona {
     

@@ -1,4 +1,12 @@
 <?php
+
+/*Ejercicio 1- Crear la capa de los datos, implementando el ORM (Modelo de datos) para la base de datos
+entregada. Recordar que se debe generar al menos, un clase php por cada tabla. Cada clase debe contener
+las variables de instancia y sus metodos get y set; ademas de los metodos que nos permitan seleccionar,
+ingresar, modificar y eliminar los datos de cada tabla.*/ 
+
+
+
 // Define la clase BaseDatos que extiende la clase PDO de PHP.
 class BaseDatos extends PDO {
 
@@ -20,9 +28,9 @@ class BaseDatos extends PDO {
         // Inicialización de atributos con valores predeterminados.
         $this->engine = 'mysql'; // Establece el motor de base de datos a 'mysql'.
         $this->host = 'localhost'; // Establece el host a 'localhost'.
-        $this->database = 'PWD'; // Nombre de la base de datos.
+        $this->database = 'phpmysql'; // Nombre de la base de datos.
         $this->user = 'root'; // Usuario de la base de datos.
-        $this->pass = ''; // Contraseña del usuario, en este caso está vacía.
+        $this->pass = ''; // Contraseña del usuario.
         $this->debug = true; // Modo de depuración activado.
         $this->error = ""; // Inicializa el mensaje de error vacío.
         $this->sql = ""; // Inicializa la consulta SQL vacía.

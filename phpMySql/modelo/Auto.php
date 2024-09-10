@@ -1,8 +1,9 @@
 <?php
 
-include_once '../modelo/BaseDatos.php';
+include_once 'BaseDatos.php';
 
-class Auto {
+class Auto
+{
     // Atributos privados de la clase Auto
     private $patente;
     private $marca;
@@ -10,7 +11,8 @@ class Auto {
     private $dniDuenio;
 
     // Constructor: permite inicializar el objeto con valores al momento de crearlo
-    public function __construct($patente = null, $marca = null, $modelo = null, $dniDuenio = null) {
+    public function __construct($patente = null, $marca = null, $modelo = null, $dniDuenio = null)
+    {
         $this->patente = $patente;
         $this->marca = $marca;
         $this->modelo = $modelo;
@@ -18,41 +20,50 @@ class Auto {
     }
 
     // Métodos getters
-    public function getPatente() {
+    public function getPatente()
+    {
         return $this->patente;
     }
 
-    public function getMarca() {
+    public function getMarca()
+    {
         return $this->marca;
     }
 
-    public function getModelo() {
+    public function getModelo()
+    {
         return $this->modelo;
     }
 
-    public function getDniDuenio() {
+    public function getDniDuenio()
+    {
         return $this->dniDuenio;
     }
 
     // Métodos setters
-    public function setPatente($patente) {
+    public function setPatente($patente)
+    {
         $this->patente = $patente;
     }
 
-    public function setMarca($marca) {
+    public function setMarca($marca)
+    {
         $this->marca = $marca;
     }
 
-    public function setModelo($modelo) {
+    public function setModelo($modelo)
+    {
         $this->modelo = $modelo;
     }
 
-    public function setDniDuenio($dniDuenio) {
+    public function setDniDuenio($dniDuenio)
+    {
         $this->dniDuenio = $dniDuenio;
     }
 
     // Método para insertar un nuevo registro en la base de datos
-    public function insertar() {
+    public function insertar()
+    {
         // Se crea una instancia de la clase BaseDatos
         $baseDatos = new BaseDatos();
         // Consulta SQL para insertar un auto
@@ -71,7 +82,8 @@ class Auto {
     }
 
     // Método para modificar un registro existente
-    public function modificar() {
+    public function modificar()
+    {
         // Se crea una instancia de la clase BaseDatos
         $baseDatos = new BaseDatos();
         // Consulta SQL para actualizar un auto
@@ -90,7 +102,8 @@ class Auto {
     }
 
     // Método para eliminar un registro
-    public function eliminar() {
+    public function eliminar()
+    {
         // Se crea una instancia de la clase BaseDatos
         $baseDatos = new BaseDatos();
         // Consulta SQL para eliminar un auto
@@ -106,7 +119,8 @@ class Auto {
     }
 
     // Método estático para listar todos los registros de autos
-    public static function listar($where = "") {
+    public static function listar($where = "")
+    {
         // Se crea una instancia de la clase BaseDatos
         $baseDatos = new BaseDatos();
         // Consulta SQL para seleccionar autos
@@ -129,4 +143,34 @@ class Auto {
 
         return $arregloAutos;
     }
+
+    // Método estático para buscar autos
+//     public static function buscar($patente) {
+//         $baseDatos = new BaseDatos();
+
+//         // Crear la consulta SQL con parámetros
+//         $sql = "SELECT * FROM auto WHERE Patente = :patente";
+//         // Preparar la consulta
+//         $consulta = $baseDatos->prepare($sql);
+//         // Vincular los parámetros
+//         $consulta->bindParam(':patente', $patente);
+//         // Ejecutar y obtener el resultado
+//         $consulta->execute();
+//         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+//         // Convertir el resultado en un arreglo de objetos Auto
+//         $autos = [];
+//         foreach ($resultado as $row) {
+//             $objAuto = new Auto(
+//                 $row['Patente'],
+//                 $row['Marca'],
+//                 $row['Modelo'],
+//                 $row['DniDuenio']
+//             );
+//             $autos[] = $objAuto;
+//         }
+
+//         return $autos;
+//     }
+
 }

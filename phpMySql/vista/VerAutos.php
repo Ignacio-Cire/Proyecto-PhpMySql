@@ -2,16 +2,22 @@
 include_once '../modelo/Auto.php';
 include_once '../modelo/Persona.php';
 
-
 // Obtener todos los autos
 $autos = Auto::listar("1=1");  // Ajusta la consulta según la implementación
 
+echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">';
+
+echo "<div class='container mt-4'>";
+echo "<h2>Crear una página PHP “VerAutos.php”, en ella usando la capa de control correspondiente mostrar todos los datos de los autos que se encuentran cargados, de los dueños mostrar nombre y apellido. En caso de que no se encuentre ningún auto cargado en la base mostrar un mensaje indicando que no hay autos cargados.</h2>";
+
 if (empty($autos)) {
-    echo "<p>No hay autos cargados.</p>";
+    echo "<div class='alert alert-warning' role='alert'>No hay autos cargados.</div>";
 } else {
-    echo "<table border='1'>";
-    echo "<tr><th>Patente</th><th>Marca</th><th>Modelo</th><th>Dueño</th></tr>";
-    
+    // Mostrar los autos en una tabla
+    echo "<table class='table table-success table-bordered mt-3'>";
+    echo "<thead><tr><th>Patente</th><th>Marca</th><th>Modelo</th><th>Dueño</th></tr></thead>";
+    echo "<tbody>";
+
     foreach ($autos as $auto) {
         // Buscar el dueño del auto
         $dueno = Persona::buscar(['NroDni' => $auto->getDniDuenio()]);
@@ -26,6 +32,9 @@ if (empty($autos)) {
         echo "</tr>";
     }
 
+    echo "</tbody>";
     echo "</table>";
 }
+
+echo "</div>";
 ?>

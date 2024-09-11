@@ -5,16 +5,14 @@ class ControlAuto
 {
 
     // Método para agregar un nuevo auto
-   
-        public function agregarAuto($datosAuto)
-        {
-            $auto = new Auto();
-            $auto->setear($datosAuto['Patente'], $datosAuto['Marca'], $datosAuto['Modelo'], $datosAuto['DniDuenio']);
-    
-            return $auto->insertar();
-        }
-    
-    
+
+    public function agregarAuto($datosAuto)
+    {
+        $auto = new Auto();
+        $auto->setear($datosAuto['Patente'], $datosAuto['Marca'], $datosAuto['Modelo'], $datosAuto['DniDuenio']);
+
+        return $auto->insertar();
+    }
 
     // Método para modificar un auto existente
     public function modificarAuto($datosAuto)
@@ -59,7 +57,31 @@ class ControlAuto
         }
     }
 
-    public function listar($where = "") {
+    // Método para listar autos
+    public function listar($where = "")
+    {
         return Auto::listar($where);
     }
+
+    // Método para cambiar el dueño de un auto
+    public function cambiarDuenio($patente, $nuevoDniDuenio)
+    {
+        $auto = new Auto();
+        return $auto->cambiarDuenio($patente, $nuevoDniDuenio);
+    }
+
+
+    // Método para buscar autos por patente
+    public function buscarAutos($criterios)
+    {
+        // Asegúrate de que el criterio 'Patente' esté presente
+        if (!isset($criterios['Patente'])) {
+            return [];
+        }
+
+        $patente = $criterios['Patente'];
+        $auto = new Auto();
+        return $auto->buscarPorPatente($patente);
+    }
+
 }

@@ -156,33 +156,46 @@ class Auto
         $this->DniDuenio = $dniDuenio;
     }
 
-    // Método estático para buscar autos
-//     public static function buscar($patente) {
-//         $baseDatos = new BaseDatos();
+    // Método para cambiar de dueño de auto
+    public function cambiarDuenio($patente, $nuevoDniDuenio)
+    {
+        try {
+            $baseDatos = new BaseDatos();
+            $sql = "UPDATE auto SET DniDuenio = :dniDuenio WHERE Patente = :patente";
+            $consulta = $baseDatos->prepare($sql);
+            $consulta->bindParam(':dniDuenio', $nuevoDniDuenio);
+            $consulta->bindParam(':patente', $patente);
 
-//         // Crear la consulta SQL con parámetros
-//         $sql = "SELECT * FROM auto WHERE Patente = :patente";
-//         // Preparar la consulta
-//         $consulta = $baseDatos->prepare($sql);
-//         // Vincular los parámetros
-//         $consulta->bindParam(':patente', $patente);
-//         // Ejecutar y obtener el resultado
-//         $consulta->execute();
-//         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+            if ($consulta->execute()) {
+                return true; // Retorna true para indicar éxito
+            } else {
+                return false; // Retorna false en caso de error
+            }
+        } catch (PDOException $e) {
+            return "Error en la actualización: " . $e->getMessage();
+        }
+    }
 
-//         // Convertir el resultado en un arreglo de objetos Auto
-//         $autos = [];
-//         foreach ($resultado as $row) {
-//             $objAuto = new Auto(
-//                 $row['Patente'],
-//                 $row['Marca'],
-//                 $row['Modelo'],
-//                 $row['DniDuenio']
-//             );
-//             $autos[] = $objAuto;
-//         }
+    // Método para buscar un auto por patente
+    public function buscarPorPatente($patente)
+    {
+        try {
+            $baseDatos = new BaseDatos();
+            $sql = "SELECT * FROM auto WHERE Patente = :patente";
+            $consulta = $baseDatos->prepare($sql);
+            $consulta->bindParam(':patente', $patente);
+            $consulta->execute();
 
-//         return $autos;
-//     }
+            // Obtener el resultado
+            $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
 
+            return $resultado;
+        } catch (PDOException $e) {
+            return "Error en la búsqueda: " . $e->getMessage();
+        }
+    }
+
+
+
+    
 }

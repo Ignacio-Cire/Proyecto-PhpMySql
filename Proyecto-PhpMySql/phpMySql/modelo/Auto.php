@@ -64,21 +64,25 @@ class Auto
     // Método para insertar un nuevo registro en la base de datos
     public function insertar()
     {
-        // Se crea una instancia de la clase BaseDatos
-        $baseDatos = new BaseDatos();
-        // Consulta SQL para insertar un auto
-        $sql = "INSERT INTO auto (Patente, Marca, Modelo, DniDuenio) VALUES (:patente, :marca, :modelo, :dniDuenio)";
-        // Se prepara la consulta
-        $consulta = $baseDatos->prepare($sql);
+        try {
+            $baseDatos = new BaseDatos();
+            $sql = "INSERT INTO auto (Patente, Marca, Modelo, DniDuenio)
+                VALUES (:patente, :marca, :modelo, :dniDuenio)";
+            $consulta = $baseDatos->prepare($sql);
+            $consulta->bindParam(':patente', $this->Patente);
+            $consulta->bindParam(':marca', $this->Marca);
+            $consulta->bindParam(':modelo', $this->Modelo);
+            $consulta->bindParam(':dniDuenio', $this->DniDuenio);
 
-        // Asignación de valores a los placeholders
-        $consulta->bindParam(':patente', $this->patente);
-        $consulta->bindParam(':marca', $this->marca);
-        $consulta->bindParam(':modelo', $this->modelo);
-        $consulta->bindParam(':dniDuenio', $this->dniDuenio);
-
-        // Ejecutar la consulta
-        return $consulta->execute();
+            //corregir los returns con mensajes
+            if ($consulta->execute()) {
+                return "Registro insertado correctamente.";
+            } else {
+                return "Error al insertar el registro.";
+            }
+        } catch (PDOException $e) {
+            return "Error en la inserción: " . $e->getMessage();
+        }
     }
 
     // Método para modificar un registro existente
@@ -142,6 +146,14 @@ class Auto
         }
 
         return $arregloAutos;
+    }
+
+    public function setear($patente, $marca, $modelo, $dniDuenio)
+    {
+        $this->Patente = $patente;
+        $this->Marca = $marca;
+        $this->Modelo = $modelo;
+        $this->DniDuenio = $dniDuenio;
     }
 
     // Método estático para buscar autos

@@ -1,23 +1,20 @@
 <?php
-// no lleva la clase auto   
+
+include_once 'C:\xampp\htdocs\clone-phpMySql\Proyecto-PhpMySql\phpMySql\modelo\Auto.php';
 class ControlAuto
 {
 
     // Método para agregar un nuevo auto
-    public function agregarAuto($datosAuto)
-    {
-        $auto = new Auto();
-        $auto->setPatente($datosAuto['Patente']);
-        $auto->setMarca($datosAuto['Marca']);
-        $auto->setModelo($datosAuto['Modelo']);
-        $auto->setDniDuenio($datosAuto['DniDuenio']);
-
-        if ($auto->insertar()) {
-            return "Auto agregado correctamente.";
-        } else {
-            return "Error al agregar el auto.";
+   
+        public function agregarAuto($datosAuto)
+        {
+            $auto = new Auto();
+            $auto->setear($datosAuto['Patente'], $datosAuto['Marca'], $datosAuto['Modelo'], $datosAuto['DniDuenio']);
+    
+            return $auto->insertar();
         }
-    }
+    
+    
 
     // Método para modificar un auto existente
     public function modificarAuto($datosAuto)

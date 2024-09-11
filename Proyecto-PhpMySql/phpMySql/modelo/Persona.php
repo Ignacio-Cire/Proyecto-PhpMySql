@@ -100,6 +100,8 @@ class Persona
             $consulta->bindParam(':telefono', $this->Telefono);
             $consulta->bindParam(':domicilio', $this->Domicilio);
 
+
+            //corregir los returns con mensajes
             if ($consulta->execute()) {
                 return "Registro insertado correctamente.";
             } else {

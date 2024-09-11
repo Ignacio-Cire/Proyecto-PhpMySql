@@ -1,7 +1,5 @@
 <?php
-
-
-//no incluye la clase Persona
+include_once 'C:\xampp\htdocs\clone-phpMySql\Proyecto-PhpMySql\phpMySql\modelo\Persona.php';
 
 class ControlPersona
 {

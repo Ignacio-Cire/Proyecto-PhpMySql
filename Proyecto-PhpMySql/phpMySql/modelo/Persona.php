@@ -88,17 +88,26 @@ class Persona
     // Método para insertar datos en la base de datos
     public function insertar()
     {
-        $baseDatos = new BaseDatos();
-        $sql = "INSERT INTO persona (NroDni, Apellido, Nombre, fechaNac, Telefono, Domicilio)
+        try {
+            $baseDatos = new BaseDatos();
+            $sql = "INSERT INTO persona (NroDni, Apellido, Nombre, fechaNac, Telefono, Domicilio)
                 VALUES (:nroDni, :apellido, :nombre, :fechaNac, :telefono, :domicilio)";
-        $consulta = $baseDatos->prepare($sql);
-        $consulta->bindParam(':nroDni', $this->nroDni);
-        $consulta->bindParam(':apellido', $this->apellido);
-        $consulta->bindParam(':nombre', $this->nombre);
-        $consulta->bindParam(':fechaNac', $this->fechaNac);
-        $consulta->bindParam(':telefono', $this->telefono);
-        $consulta->bindParam(':domicilio', $this->domicilio);
-        return $consulta->execute();
+            $consulta = $baseDatos->prepare($sql);
+            $consulta->bindParam(':nroDni', $this->NroDni);
+            $consulta->bindParam(':apellido', $this->Apellido);
+            $consulta->bindParam(':nombre', $this->Nombre);
+            $consulta->bindParam(':fechaNac', $this->fechaNac);
+            $consulta->bindParam(':telefono', $this->Telefono);
+            $consulta->bindParam(':domicilio', $this->Domicilio);
+
+            if ($consulta->execute()) {
+                return "Registro insertado correctamente.";
+            } else {
+                return "Error al insertar el registro.";
+            }
+        } catch (PDOException $e) {
+            return "Error en la inserción: " . $e->getMessage();
+        }
     }
 
     // Método para actualizar datos en la base de datos
@@ -208,6 +217,16 @@ class Persona
         }
 
         return $personas;
+    }
+
+    public function setear($dni, $apellido, $nombre, $fechaNac, $telefono, $domicilio)
+    {
+        $this->NroDni = $dni;
+        $this->Apellido = $apellido;
+        $this->Nombre = $nombre;
+        $this->fechaNac = $fechaNac;
+        $this->Telefono = $telefono;
+        $this->Domicilio = $domicilio;
     }
 
 }

@@ -40,5 +40,10 @@ if ($patente) {
     }
 } 
 
+//botón para volver a la página anterior
+echo '<a href="javascript:history.back()" class="btn btn-success mt-4">Volver</a>';
 echo '</div>';
+
+
+
 ?>

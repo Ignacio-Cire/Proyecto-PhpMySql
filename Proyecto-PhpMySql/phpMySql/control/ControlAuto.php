@@ -1,5 +1,5 @@
 <?php
-
+// no lleva la clase auto   
 class ControlAuto
 {
 
@@ -48,8 +48,6 @@ class ControlAuto
         }
     }
 
-
-
     // Método para buscar un auto por patente
     public function buscarAutoPorPatente($patente)
     {
@@ -62,5 +60,9 @@ class ControlAuto
         } else {
             return null; // Si no se encuentra el auto
         }
+    }
+
+    public function listar($where = "") {
+        return Auto::listar($where);
     }
 }

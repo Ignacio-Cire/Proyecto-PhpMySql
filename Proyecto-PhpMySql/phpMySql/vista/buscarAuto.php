@@ -11,11 +11,13 @@
 
 </head>
 <body>
-    <h3>Crear una pagina "buscarAuto.php" que contenga un formulario en donde se solicite el numero
+
+<div class="container mt-4">
+
+<h3>Crear una pagina "buscarAuto.php" que contenga un formulario en donde se solicite el numero
 de patente de un auto, estos datos deberán ser enviados a una pagina “accionBuscarAuto.php” en donde
 usando la clase de control correspondiente, se soliciten los datos completos del auto que se corresponda con
-la patente ingresada y mostrar los datos en una tabla.</h3>
-<div class="container mt-4">
+la patente ingresada y mostrar los datos en una tabla.</h3><br>
         <h1>Buscar Auto por Patente</h1>
         <form id="searchForm" action="./accion/accionBuscarAuto.php" method="post">
             <div class="form-group">

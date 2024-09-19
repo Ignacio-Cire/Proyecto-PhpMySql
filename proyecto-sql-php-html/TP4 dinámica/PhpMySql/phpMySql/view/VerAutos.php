@@ -25,10 +25,10 @@
                 <a class="nav-link" href="./VerAutos.php">Ver autos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../vista/buscarAuto.php">Buscar Auto</a>
+                <a class="nav-link" href="../view/buscarAuto.php">Buscar Auto</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../vista/listaPersonas.php">Ver todas las personas</a>
+                <a class="nav-link" href="../view/listaPersonas.php">Ver todas las personas</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="./nuevaPersona.php">Nueva persona</a>
@@ -53,8 +53,8 @@
     </div>
 </nav> <br> <br> <br>
 <?php
-include_once '../modelo/Auto.php';
-include_once '../modelo/Persona.php';
+include_once '../models/Auto.php';
+include_once '../models/Persona.php';
 
 // Obtener todos los autos
 $autos = Auto::listar("1=1"); // Ajusta la consulta según la implementación
@@ -73,7 +73,7 @@ if (empty($autos)) {
 } else {
     // Mostrar los autos en una tabla
     echo "<table class='table table-striped table-dark mt-3'>";
-    echo "<thead><tr><th>Patente</th><th>Marca</th><th>Modelo</th><th>Dueño</th></tr></thead>";
+    echo "<thead><tr><th>Patente</th><th>Marca</th><th>models</th><th>Dueño</th></tr></thead>";
     echo "<tbody class='bg-dark-custom'>";
 
     foreach ($autos as $auto) {

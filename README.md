@@ -8,7 +8,7 @@ Este proyecto está diseñado para gestionar información sobre autos y personas
 ## Estructura del Proyecto
 
 ### 1. Capa de Datos (Modelo)
-- **Objetivo:** Implementar un ORM (Modelo de datos) para interactuar con la base de datos.
+- **Objetivo:** Implementar un ORM (Modelo de datos) para interactuar con la base de datos. 
 - **Clases:**
   - `Auto`: Representa la tabla `auto` con métodos para seleccionar, ingresar, modificar y eliminar autos.
   - `Persona`: Representa la tabla `persona` con métodos similares para manejar datos de personas.

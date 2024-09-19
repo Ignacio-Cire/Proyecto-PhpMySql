@@ -1,7 +1,10 @@
+
+
+
 <?php
-include_once '../../control/ControlPersona.php';
+include_once '../../controller/ControlPersona.php';
 include_once '../../utils/datasubmited.php';
-include_once '../../modelo/Persona.php';
+include_once '../../models/Persona.php';
 echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">';
 echo '<link rel="stylesheet" href="../assets/css/error.css">';
 echo '<body>';

@@ -1,7 +1,7 @@
 <?php
-include_once '../../modelo/Auto.php';
+include_once '../../models/Auto.php';
 include_once '../../utils/datasubmited.php';
-include_once '../../control/ControlAuto.php';
+include_once '../../controller/ControlAuto.php';
 
 // Incluye Bootstrap CSS
 echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">';

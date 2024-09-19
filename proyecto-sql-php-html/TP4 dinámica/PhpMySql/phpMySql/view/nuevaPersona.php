@@ -19,25 +19,25 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="../vista/VerAutos.php">Ver autos</a>
+                <a class="nav-link" href="../view/VerAutos.php">Ver autos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../vista/buscarAuto.php">Buscar Auto</a>
+                <a class="nav-link" href="../view/buscarAuto.php">Buscar Auto</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../vista/listaPersonas.php">Ver todas las personas</a>
+                <a class="nav-link" href="../view/listaPersonas.php">Ver todas las personas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../vista/nuevaPersona.php">Nueva persona</a>
+                <a class="nav-link" href="../view/nuevaPersona.php">Nueva persona</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../vista/nuevoAuto.php">Nuevo Auto</a>
+                <a class="nav-link" href="../view/nuevoAuto.php">Nuevo Auto</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../vista/cambioDuenio.php">Cambiar dueño</a>
+                <a class="nav-link" href="../view/cambioDuenio.php">Cambiar dueño</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../vista/buscarPersona.php">Buscar persona/modificar</a>
+                <a class="nav-link" href="../view/buscarPersona.php">Buscar persona/modificar</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
@@ -96,6 +96,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../vista/assets/js/error3.js"></script>
+<script src="../view/assets/js/error3.js"></script>
 </body>
 </html>

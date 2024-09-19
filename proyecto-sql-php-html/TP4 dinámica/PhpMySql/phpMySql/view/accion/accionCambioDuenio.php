@@ -1,8 +1,12 @@
+
+
+
+
 <?php
-include_once '../../modelo/Persona.php';
-include_once '../../modelo/Auto.php';
-include_once '../../control/ControlPersona.php';
-include_once '../../control/ControlAuto.php';
+include_once '../../models/Persona.php';
+include_once '../../models/Auto.php';
+include_once '../../controller/ControlPersona.php';
+include_once '../../controller/ControlAuto.php';
 include_once '../../utils/datasubmited.php';
 
 // $datos = $_POST; // Obtener los datos del formulario

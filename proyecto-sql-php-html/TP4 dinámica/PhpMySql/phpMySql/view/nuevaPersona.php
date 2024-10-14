@@ -7,48 +7,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/error.css">
     <link rel="stylesheet" href="../../../style.css">
+    <script src="../utils/validar.php"></script>
+    
     <title>Nueva Persona</title>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand fa-2x" href="../../../menu.html">Menu</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="../view/VerAutos.php">Ver autos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../view/buscarAuto.php">Buscar Auto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../view/listaPersonas.php">Ver todas las personas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../view/nuevaPersona.php">Nueva persona</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../view/nuevoAuto.php">Nuevo Auto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../view/cambioDuenio.php">Cambiar dueño</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../view/buscarPersona.php">Buscar persona/modificar</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/Ignacio-Cire" target="_blank">
-                        <i class="fab fa-github fa-2x"></i>
-                    </a>
-                </li>
-            </ul>
-    </div>
-</nav><br><br>
+<?php
+include_once '../view/estructura/nav.php';
+?>
+<br>
 
 
 <div class="blurred-background"></div>
@@ -88,7 +56,12 @@
             <input type="text" id="domicilio" name="domicilio" class="form-control">
             <div id="error-message-domicilio" class="error-message"></div>
         </div>
-        <button type="submit" class="btn btn-outline-success">Cargar</button>
+
+         <!-- reCAPTCHA -->
+         <div class="g-recaptcha mb-3" data-sitekey="6LfhnVkqAAAAAG7ueEm-vYRbLO1u2xLsECX_IOIF"></div>
+
+
+        <button type="submit" class="btn btn-outline-success" >Cargar</button>
         <br>
         <a href="javascript:history.back()" class="btn btn-outline-success mt-4">Volver</a>
     </form>
@@ -97,5 +70,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../view/assets/js/error3.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>

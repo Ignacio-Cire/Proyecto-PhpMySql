@@ -3,7 +3,7 @@
 
 //no incluye la clase Persona
 
-class ControlPersona
+class abmPersona
 {
 
     // Método para agregar una nueva persona

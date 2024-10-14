@@ -14,44 +14,10 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand fa-2x" href="../../../menu.html">Menu</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="./VerAutos.php">Ver autos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../view/buscarAuto.php">Buscar Auto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../view/listaPersonas.php">Ver todas las personas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./nuevaPersona.php">Nueva persona</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./nuevoAuto.php">Nuevo Auto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./cambioDuenio.php">Cambiar dueño</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./buscarPersona.php">Buscar persona/modificar</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/Ignacio-Cire" target="_blank">
-                        <i class="fab fa-github fa-2x"></i>
-                    </a>
-                </li>
-            </ul>
-    </div>
-</nav> <br> <br> <br>
+<?php
+include_once '../view/estructura/nav.php';
+?>
+ <br>
 <?php
 include_once '../models/Auto.php';
 include_once '../models/Persona.php';
@@ -72,6 +38,7 @@ if (empty($autos)) {
     echo "<div class='alert alert-warning' role='alert'>No hay autos cargados.</div>";
 } else {
     // Mostrar los autos en una tabla
+    echo "<div class='table-responsive'>";
     echo "<table class='table table-striped table-dark mt-3'>";
     echo "<thead><tr><th>Patente</th><th>Marca</th><th>models</th><th>Dueño</th></tr></thead>";
     echo "<tbody class='bg-dark-custom'>";

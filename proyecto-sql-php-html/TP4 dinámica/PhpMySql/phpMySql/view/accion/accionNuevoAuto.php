@@ -3,8 +3,8 @@
 
 
 <?php
-include_once '../../controller/ControlAuto.php';
-include_once '../../controller/ControlPersona.php';
+include_once '../../controller/abmPersona.php';
+include_once '../../controller/abmAuto.php';
 include_once '../../utils/datasubmited.php';
 include_once '../../models/Persona.php';
 include_once '../../models/Auto.php';
@@ -13,8 +13,8 @@ echo '<link rel="stylesheet" href="../assets/css/error.css">';
 echo '<body>';
 echo '<div class="blurred-background" style="height: 740px;"></div>';
 $datos = dataSubmitted();
-$objControlAuto = new ControlAuto();
-$objControlPersona = new ControlPersona();
+$objControlAuto = new abmAuto();
+$objControlPersona = new abmPersona();
 $patente = $datos['patente'];
 $marca = $datos['marca'];
 $modelo = $datos['modelo'];

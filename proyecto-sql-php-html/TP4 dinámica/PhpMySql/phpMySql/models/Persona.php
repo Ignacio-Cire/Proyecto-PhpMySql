@@ -2,7 +2,7 @@
 
 include_once 'BaseDatos.php';
 
-class Persona
+class Persona extends BaseDatos
 {
     // Atributos privados de la clase Persona
     private $nroDni;

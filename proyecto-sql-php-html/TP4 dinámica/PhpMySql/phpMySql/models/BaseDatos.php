@@ -30,7 +30,7 @@ class BaseDatos extends PDO {
         $this->host = 'localhost'; // Establece el host a 'localhost'.
         $this->database = 'phpmysql'; // Nombre de la base de datos.
         $this->user = 'root'; // Usuario de la base de datos.
-        $this->pass = '45950494Gavy?'; // Contraseña del usuario.
+        $this->pass = '?'; // Contraseña del usuario.
         $this->debug = true; // Modo de depuración activado.
         $this->error = ""; // Inicializa el mensaje de error vacío.
         $this->sql = ""; // Inicializa la consulta SQL vacía.
@@ -39,11 +39,13 @@ class BaseDatos extends PDO {
        
 
         // Construye el DSN (Data Source Name) para PDO.
+        /**Conectar al servidor de base de datos: Aquí es donde te conectas a la base de datos usando credenciales como el nombre de usuario, la contraseña, el nombre del servidor y la base de datos. */
+
         $dns = $this->engine . ':dbname=' . $this->database . ";host=" . $this->host;
 
         try {
             // Llama al constructor de la clase padre (PDO) para establecer la conexión.
-            parent::__construct($dns, $this->user='root', $this->pass='45950494Gavy?', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+            parent::__construct($dns, $this->user='root', $this->pass='?', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
             $this->conec = true; // Conexión exitosa, establece conec a true.
         } catch (PDOException $e) {
             // Si ocurre un error en la conexión, captura la excepción y guarda el mensaje de error.
@@ -108,11 +110,13 @@ class BaseDatos extends PDO {
     }
 
     // Ejecuta una consulta SQL y llama al método adecuado basado en el tipo de operación.
+    
     public function Ejecutar($sql) {
         $this->setError(""); // Resetea el mensaje de error.
         $this->setSQL($sql); // Guarda la consulta SQL.
 
         // Determina el tipo de operación SQL y ejecuta el método correspondiente.
+
         if (stristr($sql, "insert")) { // Si la consulta es un INSERT.
             $resp = $this->EjecutarInsert($sql);
         }
@@ -135,6 +139,8 @@ class BaseDatos extends PDO {
      * @return int ID del registro insertado o -1.
      */
     private function EjecutarInsert($sql) {
+        
+        /**Enviar la instrucción SQL: Usas SQL para realizar consultas a la base de datos (como SELECT, INSERT, UPDATE, DELETE). PDO tiene el método query() para ejecutar esas instrucciones. */
         $resultado = parent::query($sql); // Ejecuta la consulta SQL usando el método query de PDO.
         if (!$resultado) { // Si la consulta falla.
             $this->analizarDebug(); // Analiza el error si está en modo depuración.

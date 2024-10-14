@@ -1,7 +1,7 @@
 <?php
 include_once '../../models/Auto.php';
 include_once '../../utils/datasubmited.php';
-include_once '../../controller/ControlAuto.php';
+include_once '../../controller/abmAuto.php.php';
 
 // Incluye Bootstrap CSS
 echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">';
@@ -15,13 +15,14 @@ $patente = isset($datos['patente']) ? $datos['patente'] : null;
 // Verificar si se recibió la patente
 if ($patente) {
     // Crear una instancia de la clase ControlAuto
-    $controlAuto = new ControlAuto();
+    $controlAuto = new abmAuto();
 
     // Buscar el auto en la base de datos usando la patente
     $auto = $controlAuto->buscarAutoPorPatente($patente);
 
     if ($auto) {
         // Mostrar los datos en una tabla
+        echo "<div class='table-responsive'>";
         echo '<div class="container" style="height: 740px; box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15); background-color: #c6c2decc;">';
         echo '<br>';
         echo '<h1>Resultados de la Búsqueda</h1>';

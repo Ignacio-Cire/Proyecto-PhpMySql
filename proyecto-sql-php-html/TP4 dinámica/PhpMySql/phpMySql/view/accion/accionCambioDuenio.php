@@ -5,8 +5,8 @@
 <?php
 include_once '../../models/Persona.php';
 include_once '../../models/Auto.php';
-include_once '../../controller/ControlPersona.php';
-include_once '../../controller/ControlAuto.php';
+include_once '../../controller/abmPersona.php';
+include_once '../../controller/abmAuto.php';
 include_once '../../utils/datasubmited.php';
 
 // $datos = $_POST; // Obtener los datos del formulario
@@ -22,8 +22,8 @@ echo '<div class="blurred-background"></div>';
 
 if ($dni && $patente) {
 
-    $objControlPersona = new ControlPersona();
-    $objControlAuto = new ControlAuto();
+    $objControlPersona = new abmPersona();
+    $objControlAuto = new abmAuto();
 
 
     $persona = $objControlPersona->buscarPersonas(['NroDni' => $dni]);

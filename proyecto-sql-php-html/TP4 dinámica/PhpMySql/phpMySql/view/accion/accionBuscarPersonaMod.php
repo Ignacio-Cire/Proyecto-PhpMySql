@@ -4,8 +4,8 @@
 <?php
 include_once '../../models/Persona.php';
 include_once '../../models/Auto.php';
-include_once '../../controller/ControlPersona.php';
-include_once '../../controller/ControlAuto.php';
+include_once '../../controller/abmPersona.php';
+include_once '../../controller/abmAuto.php';
 include_once '../../utils/datasubmited.php';
 
 
@@ -22,7 +22,7 @@ echo '<div class="blurred-background"></div>';
 // Verificar si se recibió el DNI
 if ($dni) {
     // Crear una instancia de la clase ControlPersona
-    $controlPersona = new ControlPersona();
+    $controlPersona = new abmPersona();
 
     // Buscar la persona en la base de datos usando el DNI
     $persona = $controlPersona->buscarPersonas(['NroDni' => $dni]);
@@ -34,6 +34,7 @@ if ($dni) {
         echo '<h1>Resultados de la Búsqueda</h1>';
 
         // Mostrar los datos de la persona en una tabla
+        echo "<div class='table-responsive'>";
         echo '<form style="background-color: #d2d0e1d5;">';
         echo '<h2>Datos de la Persona:</h2>';
         echo '<table class="table table-dark table-bordered">';
@@ -70,13 +71,14 @@ if ($dni) {
 
 
         // Crear una instancia de la clase ControlAuto
-        $controlAuto = new ControlAuto();
+        $controlAuto = new abmAuto();
 
         // Buscar los autos asociados al DNI de la persona
         $autos = $controlAuto->listar("DniDuenio = '$dni'");
 
         if (!empty($autos)) {
             // Mostrar los autos en una tabla
+            echo "<div class='table-responsive'>";
             echo '<h2>Autos Asociados:</h2>';
             echo '<table class="table table-dark table-bordered mt-3">';
             echo '<thead><tr><th>Patente</th><th>Marca</th><th>Modelo</th></tr></thead>';

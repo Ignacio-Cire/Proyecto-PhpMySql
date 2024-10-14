@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Tamaño de la fuente del texto, valor fijo
             this.fontSize = 40;
 
-            // Posición X de la línea de texto: si isLeft es true, el texto está a la izquierda (25% del ancho),
-            // de lo contrario, está a la derecha (75% del ancho)
-            this.x = isLeft ? canvas.width * 0.25 : canvas.width * 0.75;
+            // Posición X de la línea de texto: si isLeft es true, el texto está a la izquierda (10% del ancho),
+            // de lo contrario, está a la derecha (90% del ancho)
+            this.x = isLeft ? canvas.width * 0.10 : canvas.width * 0.90;
 
             // Posición inicial Y: un valor aleatorio dentro de la altura del lienzo
             this.y = Math.random() * canvas.height;

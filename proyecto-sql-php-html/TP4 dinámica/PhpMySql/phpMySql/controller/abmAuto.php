@@ -1,6 +1,6 @@
 <?php
 // no lleva la clase auto   
-class ControlAuto
+class abmAuto
 {
 
     // Método para agregar un nuevo auto

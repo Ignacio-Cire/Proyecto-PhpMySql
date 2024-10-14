@@ -2,7 +2,7 @@
 
 <?php
 include_once '../../models/Persona.php';
-include_once '../../controller/ControlPersona.php';
+include_once '../../controller/abmPersona.php';
 include_once '../../utils/datasubmited.php';
 
 $datos = dataSubmitted();
@@ -23,7 +23,7 @@ $arregloNuevaPersona = array(
     'Domicilio' => $domicilio,
 );
 
-$objControlPersona = new ControlPersona();
+$objControlPersona = new abmPersona();
 $objControlPersona->modificarPersona($arregloNuevaPersona);
 $persona = $objControlPersona->buscarPersonas(['NroDni' => $dni]);
 

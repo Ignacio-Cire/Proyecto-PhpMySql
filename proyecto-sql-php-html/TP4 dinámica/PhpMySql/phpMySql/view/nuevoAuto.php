@@ -57,7 +57,7 @@ control antes generada, no se puede acceder directamente a las clases del ORM.</
             <div id="error-message-dniDuenio" class="error-message"></div>
         </div>
 
-        <div class="h-captcha" data-sitekey="65f873b2-912c-4da6-a170-00bcb674eb7c"></div>
+      
 
 
 

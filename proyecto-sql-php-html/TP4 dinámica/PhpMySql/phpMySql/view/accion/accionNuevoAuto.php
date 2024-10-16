@@ -20,6 +20,18 @@ $marca = $datos['marca'];
 $modelo = $datos['modelo'];
 $dniDuenio = isset($datos['dniDuenio']) ? $datos['dniDuenio'] : null;
 
+$captcha = $datos['g-recaptcha-response'];
+$validar = validarCaptcha($captcha);
+
+// Verificación del CAPTCHA
+if (!$captcha || !$validar) {
+    echo '<div class="container mt-4">';
+    echo '<div class="alert alert-danger" role="alert">Verificación CAPTCHA fallida. Por favor, inténtalo de nuevo.</div>';
+    echo '<a href="javascript:history.back()" class="btn btn-secondary mt-4">Volver</a>';
+    echo '</div>';
+    exit;
+}
+
 
 $auto = $objControlAuto->buscarAutoPorPatente($patente);
 $persona = $objControlPersona->buscarPersonas(['NroDni' => $dniDuenio]);

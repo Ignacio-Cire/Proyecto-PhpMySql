@@ -56,6 +56,11 @@ control antes generada, no se puede acceder directamente a las clases del ORM.</
             <input type="text" id="dniDuenio" name="dniDuenio" class="form-control">
             <div id="error-message-dniDuenio" class="error-message"></div>
         </div>
+
+        <div class="h-captcha" data-sitekey="65f873b2-912c-4da6-a170-00bcb674eb7c"></div>
+
+
+
         <button type="submit" class="btn btn-outline-success">Cargar</button>
         <br><br><br><br>
         <a href="nuevaPersona.php" class="btn btn-outline-success">Cargar una persona</a>
@@ -67,5 +72,7 @@ control antes generada, no se puede acceder directamente a las clases del ORM.</
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../view/assets/js/error4.js"></script>
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
 </body>
 </html>

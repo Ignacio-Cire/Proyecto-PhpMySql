@@ -77,4 +77,3 @@ if (empty($persona)) {
 }
 
 echo '</body>';
-?>

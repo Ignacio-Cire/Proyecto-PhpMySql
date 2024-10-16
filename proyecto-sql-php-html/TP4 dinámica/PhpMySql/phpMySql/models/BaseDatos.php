@@ -30,11 +30,7 @@ class BaseDatos extends PDO {
         $this->host = 'localhost'; // Establece el host a 'localhost'.
         $this->database = 'phpmysql'; // Nombre de la base de datos.
         $this->user = 'root'; // Usuario de la base de datos.
-<<<<<<< HEAD
         $this->pass = '?'; // Contraseña del usuario.
-=======
-        $this->pass = ''; // Contraseña del usuario.
->>>>>>> 6229429541a3fd4df2c5eaeac321869fd6a59e38
         $this->debug = true; // Modo de depuración activado.
         $this->error = ""; // Inicializa el mensaje de error vacío.
         $this->sql = ""; // Inicializa la consulta SQL vacía.
@@ -49,11 +45,7 @@ class BaseDatos extends PDO {
 
         try {
             // Llama al constructor de la clase padre (PDO) para establecer la conexión.
-<<<<<<< HEAD
             parent::__construct($dns, $this->user='root', $this->pass='?', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-=======
-            parent::__construct($dns, $this->user='root', $this->pass='', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
->>>>>>> 6229429541a3fd4df2c5eaeac321869fd6a59e38
             $this->conec = true; // Conexión exitosa, establece conec a true.
         } catch (PDOException $e) {
             // Si ocurre un error en la conexión, captura la excepción y guarda el mensaje de error.

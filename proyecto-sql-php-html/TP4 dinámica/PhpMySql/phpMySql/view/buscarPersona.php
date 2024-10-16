@@ -20,7 +20,7 @@ include_once '../view/estructura/nav.php';
 
 
 <div class="blurred-background" style="height: 740px;"></div>
-<div class="container" style="height: 740px; box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15); background-color: #;">
+<div class="container" style="height: 740px; box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);">
     <br>
 <h4>Crear una página “BuscarPersona.html” que contenga un formulario que permita cargar un
     numero de documento de una persona. Estos datos serán enviados a una página “accionBuscarPersona.php”

@@ -1,0 +1,19 @@
+{
+    "name": "administador/clone-php-my-sql",
+    "description": "proyecto para gestionar personas y autos",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Administador\\ClonePhpMySql\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabriel Ignacio Cire",
+            "email": "gabriel.cire@est.fi.uncoma.edu.ar"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap": "^5.3"
+    }
+}

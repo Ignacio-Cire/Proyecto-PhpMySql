@@ -1,8 +1,7 @@
 
 
 <?php
-include_once '../../models/Persona.php';
-include_once '../../controller/abmPersona.php';
+require '../../../../../../vendor/autoload.php';
 include_once '../../utils/datasubmited.php';
 
 $datos = dataSubmitted();

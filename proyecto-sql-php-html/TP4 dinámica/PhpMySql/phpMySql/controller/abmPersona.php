@@ -1,7 +1,9 @@
 <?php
+namespace Administador\ClonePhpMySql\Controller;
+
+use Administador\ClonePhpMySql\Model\Persona;
 
 
-//no incluye la clase Persona
 
 class abmPersona
 {

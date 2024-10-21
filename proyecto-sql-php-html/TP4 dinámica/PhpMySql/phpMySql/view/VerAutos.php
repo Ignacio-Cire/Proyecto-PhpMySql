@@ -19,8 +19,7 @@ include_once '../view/estructura/nav.php';
 ?>
  <br>
 <?php
-include_once '../models/Auto.php';
-include_once '../models/Persona.php';
+require '../vendor/autoload.php';
 
 // Obtener todos los autos
 $autos = Auto::listar("1=1"); // Ajusta la consulta según la implementación

@@ -3,12 +3,11 @@
 
 
 <?php
-include_once '../../controller/abmPersona.php';
-include_once '../../controller/abmAuto.php';
+require '../../../../../../vendor/autoload.php';
 include_once '../../utils/datasubmited.php';
-include_once '../../models/Persona.php';
-include_once '../../models/Auto.php';
-include_once '../../utils/validar.php';
+
+
+
 echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">';
 echo '<link rel="stylesheet" href="../assets/css/error.css">';
 echo '<body>';

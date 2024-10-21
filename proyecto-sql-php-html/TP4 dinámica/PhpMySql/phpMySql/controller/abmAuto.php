@@ -1,5 +1,6 @@
 <?php
-// no lleva la clase auto   
+
+namespace Administador\ClonePhpMySql\Controller;
 class abmAuto
 {
 
